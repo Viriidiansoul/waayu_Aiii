@@ -27,7 +27,14 @@ export class Menusection {
 
   // ✅ Button action
   openFullMenu() {
-    console.log('Navigate to full menu');
-    // later you can use router here
+    // Navigate to full menu - can use router here if needed
+  }
+
+  /** Handle broken images by setting a fallback */
+  onImageError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    if (img) {
+      img.src = 'assets/home/menu_banner.jpg';
+    }
   }
 }

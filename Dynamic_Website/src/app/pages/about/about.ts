@@ -31,8 +31,6 @@ export class About implements OnInit {
       this.isLoading = false;
     }
 
-    console.log('ABOUT DATA:', this.aboutData);
-
     // ✅ API call
     this.api.getRestaurantAbout().subscribe({
       next: (res) => {
@@ -62,5 +60,13 @@ export class About implements OnInit {
   // ✅ OPTIONAL: phone format
   get phoneNumber(): string {
     return this.aboutData?.phone ? `+91 ${this.aboutData.phone}` : '';
+  }
+
+  /** Handle broken images by setting a fallback */
+  onImageError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    if (img) {
+      img.src = 'assets/home/menu_banner.jpg';
+    }
   }
 }

@@ -146,4 +146,12 @@ export class Menu implements OnInit, AfterViewInit {
     const url = this.restaurantData?.website_url;
     if (url) window.open(url, '_blank');
   }
+
+  /** Handle broken images by setting a fallback */
+  onImageError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    if (img && img.src !== 'assets/home/menu_banner.jpg') {
+      img.src = 'assets/home/menu_banner.jpg';
+    }
+  }
 }

@@ -53,6 +53,14 @@ export class Gallery implements OnInit {
     this.centerIndex = index;
   }
 
+  /** Handle broken images by setting a fallback */
+  onImageError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    if (img && img.src !== 'assets/default.jpg') {
+      img.src = 'assets/default.jpg';
+    }
+  }
+
   // performance
   trackById(index: number, item: GalleryItem): number {
     return item?.id ?? index;

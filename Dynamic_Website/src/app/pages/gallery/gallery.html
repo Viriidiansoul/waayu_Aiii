@@ -29,6 +29,7 @@
         <img
           [src]="item.image_url || 'assets/default.jpg'"
           [alt]="item.title"
+          (error)="onImageError($event)"
         />
 
         <div class="lux-overlay">

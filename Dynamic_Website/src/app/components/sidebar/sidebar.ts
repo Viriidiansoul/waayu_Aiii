@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ApiService, RestaurantAbout } from '../../service/api';
+import { APP_URL, WEBSITE_URL, DEFAULT_IMAGES } from '../../constants';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,9 +12,9 @@ import { ApiService, RestaurantAbout } from '../../service/api';
   styleUrl: './sidebar.css',
 })
 export class Sidebar implements OnInit {
-  logoUrl: string = '';
-  appUrl: string = '';
-  websiteUrl: string = '';
+  logoUrl: string = DEFAULT_IMAGES.logo;
+  appUrl: string = APP_URL;
+  websiteUrl: string = WEBSITE_URL;
 
   isLoading: boolean = true;
 
@@ -55,9 +56,9 @@ export class Sidebar implements OnInit {
   // SET DATA (REUSABLE)
   // =========================
   setData(res: RestaurantAbout): void {
-    this.logoUrl = res?.restaurant_logo || 'assets/default-logo.png';
-    this.appUrl = res?.app_url || '#';
-    this.websiteUrl = res?.website_url || '#';
+    this.logoUrl = res?.restaurant_logo || DEFAULT_IMAGES.logo;
+    this.appUrl = res?.app_url || APP_URL;
+    this.websiteUrl = res?.website_url || WEBSITE_URL;
   }
 
   // =========================
@@ -69,5 +70,13 @@ export class Sidebar implements OnInit {
 
   closeSidebar(): void {
     this.isOpen = false;
+  }
+
+  /** Handle broken images by setting a fallback */
+  onImageError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    if (img && img.src !== 'assets/default-logo.png') {
+      img.src = 'assets/default-logo.png';
+    }
   }
 }

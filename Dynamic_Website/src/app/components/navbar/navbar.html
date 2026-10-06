@@ -47,7 +47,12 @@
       class="navbar-brand nav-logo-center"
       (click)="closeMobileMenu()"
     >
-      <img [src]="logoUrl" class="nav-logo" />
+      <img
+        [src]="logoUrl"
+        class="nav-logo"
+        alt="logo"
+        (error)="onImageError($event)"
+      />
     </a>
 
     <!-- RIGHT BUTTONS (DESKTOP) -->

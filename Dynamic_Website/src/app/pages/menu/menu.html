@@ -30,7 +30,10 @@
         @for (cat of categories.slice(0, 3); track cat.id) {
           <div class="col-lg-4 col-md-6">
             <div class="premium-card" (click)="openCategory(cat)">
-              <img [src]="cat.image_url || 'assets/home/menu_banner.jpg'" />
+              <img
+                [src]="cat.image_url || 'assets/home/menu_banner.jpg'"
+                (error)="onImageError($event)"
+              />
 
               <div class="premium-overlay">
                 <div class="content">
@@ -57,7 +60,10 @@
         @for (item of menuItems; track item.id) {
           <div class="menu-card">
             <div class="menu-img">
-              <img [src]="item.image_url" />
+              <img
+                [src]="item.image_url"
+                (error)="onImageError($event)"
+              />
             </div>
 
             <div class="menu-content">

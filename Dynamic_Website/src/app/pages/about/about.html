@@ -16,7 +16,11 @@
         <div class="col-lg-6">
           <div class="cooking-main-image">
             <!-- use your story image or create cooking_image field -->
-            <img [src]="aboutData.story_image" alt="Cooking" />
+            <img
+              [src]="aboutData.story_image"
+              alt="Cooking"
+              (error)="onImageError($event)"
+            />
           </div>
         </div>
 
@@ -39,7 +43,10 @@
             <div class="row mt-4">
               <div class="col-6">
                 <div class="cook-feature-item">
-                  <img [src]="aboutData.cooking_feature1_image" />
+                  <img
+                    [src]="aboutData.cooking_feature1_image"
+                    (error)="onImageError($event)"
+                  />
 
                   <h6>
                     {{ aboutData.cooking_feature1_title }}
@@ -53,7 +60,10 @@
 
               <div class="col-6">
                 <div class="cook-feature-item">
-                  <img [src]="aboutData.cooking_feature2_image" />
+                  <img
+                    [src]="aboutData.cooking_feature2_image"
+                    (error)="onImageError($event)"
+                  />
 
                   <h6>
                     {{ aboutData.cooking_feature2_title }}

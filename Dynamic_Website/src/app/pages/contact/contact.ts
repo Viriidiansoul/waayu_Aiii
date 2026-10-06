@@ -39,8 +39,6 @@ export class Contact implements OnInit {
       this.mapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
 
       this.openingHours = this.api.getOpeningHoursFromAbout(res);
-
-      console.log('Opening Hours:', this.openingHours);
     });
   }
 
@@ -86,7 +84,9 @@ export class Contact implements OnInit {
   }
 
   validPhone(): boolean {
-    return /^[0-9]{10}$/.test(this.form.phone);
+    // Accept 10 digits, optionally with +91 prefix, spaces, or dashes
+    const cleaned = this.form.phone.replace(/[\s\-()]/g, '');
+    return /^(\+91)?[0-9]{10}$/.test(cleaned);
   }
 
   validSubject(): boolean {

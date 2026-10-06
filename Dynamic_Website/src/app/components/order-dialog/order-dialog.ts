@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService, DialogData } from '../../service/api';
+import { APP_URL, WEBSITE_URL } from '../../constants';
 
 @Component({
   selector: 'app-order-dialog',
@@ -20,8 +21,8 @@ export class OrderDialog implements OnInit {
   @Input() item: DialogData | null = null;
   @Output() close = new EventEmitter<void>();
 
-  appUrl: string = '';
-  websiteUrl: string = '';
+  appUrl: string = APP_URL;
+  websiteUrl: string = WEBSITE_URL;
 
   constructor(
     private api: ApiService,
@@ -32,12 +33,12 @@ export class OrderDialog implements OnInit {
     const cached = this.api.getCachedAbout();
 
     if (cached) {
-      this.appUrl = cached.app_url || '';
-      this.websiteUrl = cached.website_url || '';
+      this.appUrl = cached.app_url || APP_URL;
+      this.websiteUrl = cached.website_url || WEBSITE_URL;
     } else {
       this.api.getRestaurantAbout().subscribe((data) => {
-        this.appUrl = data.app_url || '';
-        this.websiteUrl = data.website_url || '';
+        this.appUrl = data.app_url || APP_URL;
+        this.websiteUrl = data.website_url || WEBSITE_URL;
         this.cdr.markForCheck();
       });
     }
@@ -59,6 +60,14 @@ export class OrderDialog implements OnInit {
   orderOnWebsite() {
     if (this.websiteUrl) {
       window.open(this.websiteUrl, '_blank');
+    }
+  }
+
+  /** Handle broken images by setting a fallback */
+  onImageError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    if (img) {
+      img.src = 'assets/home/menu_banner.jpg';
     }
   }
 }

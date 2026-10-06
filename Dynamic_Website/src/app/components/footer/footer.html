@@ -22,13 +22,24 @@
         <!-- Address -->
         <p class="mb-2 d-flex align-items-center">
           <a
-            href="https://maps.app.goo.gl/B1EcXfDBtjtqdLA37"
+            *ngIf="mapUrl; else defaultMap"
+            [href]="mapUrl"
             target="_blank"
             rel="noopener noreferrer"
             class="me-3"
           >
             <i class="fa fa-map-marker-alt"></i>
           </a>
+          <ng-template #defaultMap>
+            <a
+              href="https://maps.app.goo.gl/B1EcXfDBtjtqdLA37"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="me-3"
+            >
+              <i class="fa fa-map-marker-alt"></i>
+            </a>
+          </ng-template>
           <span>{{ aboutData?.address }}</span>
         </p>
 
@@ -50,14 +61,24 @@
 
         <!-- Button -->
         <a
-          href="https://maps.app.goo.gl/B1EcXfDBtjtqdLA37"
+          *ngIf="mapUrl; else defaultDirections"
+          [href]="mapUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="me-3"
           class="btn custom-order-btn btn-sm text-white"
         >
           GET DIRECTIONS →
         </a>
+        <ng-template #defaultDirections>
+          <a
+            href="https://maps.app.goo.gl/B1EcXfDBtjtqdLA37"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn custom-order-btn btn-sm text-white"
+          >
+            GET DIRECTIONS →
+          </a>
+        </ng-template>
       </div>
 
       <div class="col-lg-3 col-md-6">
@@ -116,7 +137,7 @@
     <div class="copyright text-center">
       <div class="footer-menu mb-2">
         <a
-          href="/kozy-brew-cafe/privacy-policy"
+          routerLink="/privacy-policy"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -124,7 +145,7 @@
         </a>
         |
         <a
-          href="/kozy-brew-cafe/terms-and-conditions"
+          routerLink="/terms-and-conditions"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -132,7 +153,7 @@
         </a>
       </div>
       <p class="mb-0 footer-copy">
-        © 2026 {{ restaurantName }}, All Rights Reserved.
+        © {{ currentYear }} {{ restaurantName }}, All Rights Reserved.
 
         <a
           href="https://waayu.app"

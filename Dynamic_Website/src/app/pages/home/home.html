@@ -54,7 +54,11 @@
       <!-- Left Image -->
       <div class="col-lg-6">
         <div class="about-img">
-          <img [src]="aboutData.story_image" alt="About Restaurant" />
+          <img
+            [src]="aboutData.story_image"
+            alt="About Restaurant"
+            (error)="onImageError($event)"
+          />
         </div>
       </div>
 
@@ -98,6 +102,7 @@
             <img
               [src]="item.image_url || 'assets/home/menu_banner.jpg'"
               alt="feature"
+              (error)="onImageError($event)"
             />
           </div>
 
@@ -134,7 +139,10 @@
           *ngFor="let item of galleryItems; let i = index"
           [class.active]="i === centerIndex"
         >
-          <img [src]="item.image_url || 'assets/default.jpg'" />
+          <img
+            [src]="item.image_url || 'assets/default.jpg'"
+            (error)="onImageError($event)"
+          />
         </div>
       </div>
     </div>
@@ -249,6 +257,7 @@
             <img
               [src]="item.image_url || 'assets/home/man.jpg'"
               class="user-img"
+              (error)="onImageError($event)"
             />
 
             <div>

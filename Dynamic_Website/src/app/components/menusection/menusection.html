@@ -14,7 +14,11 @@
         <div class="menu-card">
           <!-- IMAGE -->
           <div class="menu-img">
-            <img [src]="item.image_url" [alt]="item.title" />
+            <img
+              [src]="item.image_url"
+              [alt]="item.title"
+              (error)="onImageError($event)"
+            />
           </div>
 
           <!-- CONTENT -->

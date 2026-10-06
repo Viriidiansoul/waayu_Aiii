@@ -1,7 +1,11 @@
 <div class="dialog-backdrop" (click)="onBackdropClick()">
   <div class="dialog-box" (click)="$event.stopPropagation()">
     <!-- Close -->
-    <button class="dialog-close" (click)="onBackdropClick()">
+    <button
+      class="dialog-close"
+      (click)="onBackdropClick()"
+      aria-label="Close dialog"
+    >
       <i class="bi bi-x-lg"></i>
     </button>
 
@@ -9,7 +13,11 @@
       <!-- Image -->
       @if (item.image_url) {
         <div class="dialog-image">
-          <img [src]="item.image_url" [alt]="item.title" />
+          <img
+            [src]="item.image_url"
+            [alt]="item.title"
+            (error)="onImageError($event)"
+          />
         </div>
       }
 

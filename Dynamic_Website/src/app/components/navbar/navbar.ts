@@ -63,4 +63,12 @@ export class Navbar implements OnInit {
   closeMobileMenu() {
     this.isMobileMenuOpen = false;
   }
+
+  /** Handle broken images by setting a fallback */
+  onImageError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    if (img && img.src !== 'assets/default-logo.png') {
+      img.src = 'assets/default-logo.png';
+    }
+  }
 }

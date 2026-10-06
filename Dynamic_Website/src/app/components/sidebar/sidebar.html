@@ -7,7 +7,12 @@
   <div class="sidebar-top">
     <!-- LOGO -->
     <a routerLink="/" class="logo-wrapper" (click)="closeSidebar()">
-      <img [src]="logoUrl" alt="logo" class="sidebar-logo" />
+      <img
+        [src]="logoUrl"
+        alt="logo"
+        class="sidebar-logo"
+        (error)="onImageError($event)"
+      />
     </a>
 
     <!-- NAV LINKS -->
