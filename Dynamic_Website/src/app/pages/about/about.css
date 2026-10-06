@@ -1,0 +1,935 @@
+.menu-banner {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+/* Image control */
+.menu-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Center text */
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.banner-text h1 {
+  color: #000;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.about-cooking {
+  background: #fff9db;
+  color: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+/* SUBTITLE */
+.subtitle {
+  letter-spacing: 3px;
+  font-size: 18px;
+  color: #aaa;
+}
+
+/* TITLE */
+.main-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+/* RED HIGHLIGHT */
+.highlight {
+  color: #79522f;
+}
+
+/* DESCRIPTION */
+.desc {
+  max-width: 700px;
+  color: #000;
+  line-height: 1.8;
+}
+
+/* FEATURE CARD */
+.feature-card {
+  background: #79522f;
+  padding: 25px;
+  border-radius: 12px;
+  transition: 0.4s;
+  height: 100%;
+  color: white;
+}
+
+.feature-card img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+
+  /* 👇 THIS IS IMPORTANT */
+  filter: none; /* remove old filter */
+}
+
+.feature-card h5 {
+  margin-top: 10px;
+}
+
+.feature-card {
+  background: #d23647;
+  color: #fff;
+}
+
+/* HOVER EFFECT */
+.feature-card:hover {
+  transform: translateY(-8px);
+  background: #d23647;
+  color: #fff;
+}
+
+.feature-card:hover p {
+  color: #fff;
+}
+/* =============================
+   WRAPPER
+============================= */
+.story-vision {
+  position: relative;
+  min-height: 750px; /* ✅ FIXED (no more cut) */
+  overflow: hidden;
+  background: #000;
+}
+
+/* =============================
+   IMAGES (LEFT & RIGHT)
+============================= */
+.sv-img {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  z-index: 1;
+}
+
+.sv-left {
+  left: 0;
+}
+
+.sv-right {
+  right: 0;
+}
+
+.sv-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =============================
+   BLACK TRIANGLES (CROSS EFFECT)
+============================= */
+.sv-content {
+  position: absolute;
+  width: 100%;
+  color: #fff;
+  z-index: 2;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* TOP TRIANGLE */
+.sv-top {
+  top: 0;
+  height: 50%;
+  background: #000;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  display: flex;
+  align-items: flex-start; /* ✅ FIX */
+  justify-content: center;
+  padding-top: 80px; /* ✅ spacing */
+}
+
+/* BOTTOM TRIANGLE */
+.sv-bottom {
+  bottom: 0;
+  height: 50%;
+  background: #000;
+  clip-path: polygon(0 100%, 100% 100%, 50% 0);
+  display: flex;
+  align-items: flex-end; /* ✅ FIX */
+  justify-content: center;
+  padding-bottom: 80px; /* ✅ spacing */
+}
+
+.sv-small {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #ccc;
+  margin-bottom: 5px;
+}
+
+.sv-content h2 {
+  color: #f59d21;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.sv-desc {
+  max-width: 550px; /* ✅ tighter = no edge cut */
+  margin: auto;
+  color: #bbb;
+  line-height: 1.8;
+  font-size: 14px;
+  padding: 0 20px; /* ✅ safety spacing */
+}
+
+/* =============================
+   RESPONSIVE (VERY IMPORTANT)
+============================= */
+@media (max-width: 768px) {
+  .story-vision {
+    min-height: auto;
+  }
+
+  .sv-img {
+    position: relative;
+    width: 100%;
+    height: 250px;
+  }
+
+  .sv-content {
+    position: relative;
+    clip-path: none;
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .sv-top,
+  .sv-bottom {
+    clip-path: none;
+    align-items: center;
+    padding: 40px 20px;
+  }
+}
+
+/* =============================
+   MISSION BACKGROUND (OVAL)
+============================= */
+.mission-section {
+  background: #79522f;
+  border-radius: 50% / 15%;
+  overflow: hidden;
+}
+
+/* Letter spacing fix */
+.letter-spacing {
+  letter-spacing: 3px;
+}
+
+/* =============================
+   ICON BOX
+============================= */
+.icon-box {
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  border-radius: 12px;
+  border: 2px solid #333;
+  transition: 0.3s;
+}
+
+.icon-box img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* =============================
+   HOVER EFFECT
+============================= */
+.mission-card:hover .icon-box {
+  transform: scale(1.1);
+  border-color: #d23647; /* Bootstrap warning color */
+}
+
+/* =============================
+   MOBILE FIX
+============================= */
+@media (max-width: 768px) {
+  .mission-section {
+    border-radius: 0; /* remove oval for mobile */
+  }
+}
+
+/* =============================
+   SECTION BACKGROUND
+============================= */
+.location-section {
+  background: #fff;
+}
+
+/* =============================
+   MAP BOX
+============================= */
+.map-box {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #222;
+}
+
+/* =============================
+   TEXT
+============================= */
+.location-section p {
+  color: #000;
+}
+
+/* =============================
+   DIRECTIONS LINK
+============================= */
+.direction-link {
+  color: #4a001f;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.direction-link .arrow {
+  font-size: 20px;
+}
+
+.direction-link:hover {
+  color: #ff4d4d;
+  transform: translateX(-5px);
+}
+.section-title {
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #ffc107; /* Bootstrap yellow */
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #ffc107;
+  margin: 6px auto 0;
+}
+.location-section {
+  background: #fff9db; /* 👈 soft yellow */
+}
+
+/* hide mobile images on desktop */
+.mobile-img {
+  display: none;
+}
+
+/* show only on mobile */
+@media (max-width: 768px) {
+  .mobile-img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-top: 15px;
+    border-radius: 10px;
+  }
+
+  /* hide side images in mobile */
+  .sv-img {
+    display: none;
+  }
+}
+
+.custom-title {
+  color: #ffffff;
+}
+/* =============================
+   SECTION
+============================= */
+.mission-modern {
+  background: #fff;
+  color: #000;
+}
+
+/* HEADER */
+.sub {
+  color: #79522f;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+.main-title {
+  font-size: 36px;
+  margin-top: 10px;
+}
+
+.sub-text {
+  max-width: 600px;
+  color: #544e4e;
+}
+
+/* =============================
+   CARD (GLASS EFFECT 🔥)
+============================= */
+.mission-card-modern {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 25px;
+  text-align: left;
+
+  height: 100%;
+  transition: 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* IMAGE */
+.mission-card-modern img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+/* TEXT */
+.mission-card-modern h5 {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.mission-card-modern p {
+  font-size: 14px;
+  color: #544e4e;
+}
+
+/* =============================
+   HOVER EFFECT 🔥
+============================= */
+.mission-card-modern:hover {
+  transform: translateY(-10px);
+  border-color: #d23647;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mission-card-modern:hover h5 {
+  color: #d23647;
+}
+
+/* =============================
+   SECTION
+============================= */
+.story-vision-modern {
+  background: #111;
+  color: #fff;
+}
+
+/* =============================
+   IMAGE
+============================= */
+.sv-img-box {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.sv-img-box img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: 0.4s ease;
+}
+
+/* HOVER */
+.sv-img-box:hover img {
+  transform: scale(1.05);
+}
+
+/* =============================
+   TEXT
+============================= */
+.sv-text {
+  padding: 20px;
+}
+
+.sub {
+  color: #79522f;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+.sv-text h2 {
+  font-size: 34px;
+  margin: 10px 0;
+}
+
+.sv-text p {
+  color: #bbb;
+  line-height: 1.7;
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+@media (max-width: 768px) {
+  .sv-img-box img {
+    height: 250px;
+  }
+}
+/* =============================
+   SECTION
+============================= */
+.about-cooking-modern {
+  background: #fff9db;
+}
+
+/* =============================
+   TEXT
+============================= */
+.subtitle {
+  letter-spacing: 3px;
+  font-size: 18px;
+  color: #79522f;
+}
+
+.main-title {
+  font-size: 38px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.desc {
+  color: #444;
+  line-height: 1.7;
+}
+
+/* =============================
+   CARD (MODERN 🔥)
+============================= */
+.feature-card-modern {
+  background: #79522f;
+  padding: 25px;
+  border-radius: 16px;
+
+  height: 100%;
+  transition: 0.4s ease;
+
+  border: 1px solid #eee;
+}
+
+/* IMAGE */
+.feature-card-modern img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+/* TEXT */
+.feature-card-modern h5 {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.feature-card-modern p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* =============================
+   HOVER 🔥
+============================= */
+.feature-card-modern:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 28px;
+  }
+}
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  max-width: 650px;
+  text-align: left; /* 🔥 more premium */
+  z-index: 2;
+}
+
+/* SUBTITLE */
+.hero-subtitle {
+  color: #d23647;
+  letter-spacing: 2px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* TITLE */
+.hero-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 15px;
+
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* 🔥 glow */
+}
+
+/* DESCRIPTION */
+.hero-desc {
+  font-size: 16px;
+  color: #e0e0e0;
+  line-height: 1.6;
+
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+/* ==========================
+MISSION LUXURY UI
+========================== */
+
+.mission-luxury-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #faf7f3, #ffffff);
+
+  overflow: hidden;
+}
+
+.mission-luxury-subtitle {
+  color: #79522f;
+
+  font-size: 14px;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+.mission-luxury-title {
+  font-size: 52px;
+
+  font-weight: 700;
+
+  margin: 15px 0;
+}
+
+.mission-luxury-desc {
+  max-width: 800px;
+
+  color: #666;
+
+  font-size: 17px;
+
+  line-height: 1.8;
+}
+
+/* CARD */
+
+.mission-luxury-card {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  padding: 35px;
+
+  background: #fff;
+
+  border-radius: 30px;
+
+  height: 100%;
+
+  position: relative;
+
+  overflow: hidden;
+
+  transition: 0.5s;
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* zig zag effect */
+
+.card-left {
+  margin-right: 40px;
+}
+
+.card-right {
+  margin-left: 40px;
+}
+
+/* ICON */
+
+.mission-icon-box {
+  width: 90px;
+  height: 90px;
+
+  min-width: 90px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background: #faf3ea;
+
+  transition: 0.5s;
+}
+
+.mission-icon-box img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+/* CONTENT */
+
+.mission-content-box h4 {
+  font-size: 30px;
+  font-weight: 700;
+
+  margin-bottom: 10px;
+}
+
+.mission-content-box p {
+  color: #666;
+  line-height: 1.8;
+}
+
+/* HOVER */
+
+.mission-luxury-card:hover {
+  transform: translateY(-12px);
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+.mission-luxury-card:hover .mission-icon-box {
+  transform: rotate(15deg) scale(1.1);
+
+  background: #d23647;
+}
+
+.mission-luxury-card:hover img {
+  filter: brightness(0) invert(1);
+}
+
+/* MOBILE */
+
+@media (max-width: 991px) {
+  .card-left,
+  .card-right {
+    margin: 0;
+  }
+
+  .mission-luxury-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mission-luxury-card {
+    flex-direction: column;
+    text-align: center;
+
+    padding: 30px 20px;
+  }
+
+  .mission-content-box h4 {
+    font-size: 24px;
+  }
+}
+/* ==========================
+COOKING SHOWCASE
+========================== */
+
+.cooking-showcase-wrap {
+  padding: 100px 0;
+
+  background: #0f0f0f;
+}
+
+.cooking-showcase-box {
+  background: #312c53;
+
+  padding: 50px;
+
+  border-radius: 0;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* IMAGE */
+
+.cooking-main-image {
+  overflow: hidden;
+
+  border-radius: 15px;
+}
+
+.cooking-main-image img {
+  width: 100%;
+
+  height: 500px;
+
+  object-fit: cover;
+
+  transition: 0.8s;
+}
+
+.cooking-main-image:hover img {
+  transform: scale(1.08);
+}
+
+/* CONTENT */
+
+.cooking-content-area {
+  padding-left: 20px;
+}
+
+.cook-mini-title {
+  color: #096e36;
+
+  font-size: 20px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  display: block;
+
+  margin-bottom: 15px;
+}
+
+.cook-main-heading {
+  font-size: 50x;
+
+  font-weight: 400;
+
+  line-height: 1.1;
+
+  color: #d23647;
+
+  margin-bottom: 25px;
+}
+
+.cook-description {
+  font-size: 16px;
+
+  line-height: 1.9;
+
+  color: #eee;
+
+  margin-bottom: 30px;
+}
+
+/* FEATURE */
+
+.cook-feature-item {
+  margin-bottom: 25px;
+}
+
+.cook-feature-item img {
+  width: 35px;
+  height: 35px;
+
+  object-fit: contain;
+
+  margin-bottom: 15px;
+
+  filter: brightness(0) invert(1);
+}
+
+.cook-feature-item h6 {
+  font-size: 22px;
+
+  color: white;
+
+  margin-bottom: 10px;
+}
+
+.cook-feature-item p {
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  color: #ddd;
+}
+
+/* BUTTON */
+
+.cook-btn {
+  border: none;
+
+  padding: 14px 30px;
+
+  background: #e8c26c;
+
+  color: black;
+
+  border-radius: 6px;
+
+  margin-top: 20px;
+
+  transition: 0.5s;
+
+  font-weight: 600;
+}
+
+.cook-btn:hover {
+  transform: translateY(-5px);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .cooking-showcase-box {
+    padding: 25px;
+  }
+
+  .cook-main-heading {
+    font-size: 34px;
+    color: #096e36;
+  }
+
+  .cooking-main-image img {
+    height: 280px;
+  }
+
+  .cooking-content-area {
+    padding-left: 0;
+  }
+}

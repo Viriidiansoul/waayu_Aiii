@@ -1,0 +1,214 @@
+/* =========================
+   GALLERY LUXURY SECTION
+========================= */
+
+.gallery-section {
+  background: #fff;
+  padding: 100px 0;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.gallery-tag {
+  color: #caa25d;
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.gallery-title {
+  font-size: 52px;
+  font-weight: 700;
+  margin: 15px 0;
+  color: #fff;
+}
+
+.gallery-desc {
+  color: #aaa;
+  font-size: 16px;
+}
+
+/* =========================
+   MASONRY GRID
+========================= */
+
+.lux-gallery-grid {
+  column-count: 4;
+
+  column-gap: 22px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.lux-gallery-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  margin-bottom: 22px;
+
+  break-inside: avoid;
+
+  cursor: pointer;
+
+  background: #161616;
+
+  transition: 0.5s ease;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.lux-gallery-card img {
+  width: 100%;
+
+  height: auto; /* IMPORTANT */
+
+  display: block;
+
+  transition: transform 0.8s ease;
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.lux-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  padding: 25px;
+
+  opacity: 0;
+
+  transition: 0.5s;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.3),
+    transparent
+  );
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.lux-content {
+  transform: translateY(30px);
+
+  transition: 0.5s;
+}
+
+.lux-content h3 {
+  font-size: 28px;
+
+  font-weight: 700;
+
+  color: white;
+
+  margin-bottom: 6px;
+}
+
+.lux-content span {
+  color: #d6b170;
+
+  font-size: 13px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+/* =========================
+   HOVER
+========================= */
+
+.lux-gallery-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+}
+
+.lux-gallery-card:hover img {
+  transform: scale(1.08);
+}
+
+.lux-gallery-card:hover .lux-overlay {
+  opacity: 1;
+}
+
+.lux-gallery-card:hover .lux-content {
+  transform: translateY(0);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 992px) {
+  .lux-gallery-grid {
+    column-count: 3;
+  }
+
+  .gallery-title {
+    font-size: 40px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .gallery-section {
+    padding: 70px 0;
+  }
+
+  .lux-gallery-grid {
+    column-count: 2;
+
+    column-gap: 14px;
+  }
+
+  .gallery-title {
+    font-size: 32px;
+  }
+
+  .lux-content h3 {
+    font-size: 20px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .lux-gallery-grid {
+    column-count: 1;
+  }
+
+  .gallery-title {
+    font-size: 28px;
+  }
+
+  .gallery-desc {
+    font-size: 14px;
+  }
+}

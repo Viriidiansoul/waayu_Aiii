@@ -1,0 +1,152 @@
+<div class="container-fluid text-light footer py-4 mt-4">
+  <div class="container py-4">
+    <div class="row gy-4">
+      <!-- About -->
+      <div class="col-lg-3 col-md-6">
+        <h4 class="section-title text-start fw-normal mb-4 text-white">
+          About Us
+        </h4>
+
+        <p>
+          {{ aboutData?.cooking_description }}
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <!-- CONTACT -->
+      <div class="col-lg-3 col-md-6 contact-icons">
+        <h4 class="section-title text-start fw-normal mb-4 text-white">
+          Contact Us
+        </h4>
+
+        <!-- Address -->
+        <p class="mb-2 d-flex align-items-center">
+          <a
+            href="https://maps.app.goo.gl/B1EcXfDBtjtqdLA37"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="me-3"
+          >
+            <i class="fa fa-map-marker-alt"></i>
+          </a>
+          <span>{{ aboutData?.address }}</span>
+        </p>
+
+        <!-- Phone -->
+        <p class="mb-2 d-flex align-items-center">
+          <a [href]="'tel:+91' + aboutData?.phone" class="me-3">
+            <i class="fa-solid fa-phone"></i>
+          </a>
+          <span>+91 {{ aboutData?.phone }}</span>
+        </p>
+
+        <!-- Email -->
+        <p class="mb-3 d-flex align-items-center">
+          <a [href]="'mailto:' + aboutData?.email" class="me-3">
+            <i class="fa fa-envelope"></i>
+          </a>
+          <span>{{ aboutData?.email }}</span>
+        </p>
+
+        <!-- Button -->
+        <a
+          href="https://maps.app.goo.gl/B1EcXfDBtjtqdLA37"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="me-3"
+          class="btn custom-order-btn btn-sm text-white"
+        >
+          GET DIRECTIONS →
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <h4 class="section-title text-start fw-normal mb-4 text-white">
+          Opening Hours
+        </h4>
+
+        <ul class="list-unstyled opening-hours">
+          <li
+            *ngFor="let day of openingHours"
+            class="d-flex justify-content-between border-bottom py-2"
+          >
+            <span>{{ day.day }}</span>
+
+            <span *ngIf="day.isOpen">
+              {{ day.morningOpen }} – {{ day.morningClose }}
+            </span>
+
+            <span *ngIf="!day.isOpen">Closed</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Social Links -->
+      <div class="col-lg-3 col-md-6">
+        <h4 class="section-title text-start fw-normal mb-3 text-white">
+          Social Links
+        </h4>
+
+        <div class="social-icons">
+          <a
+            *ngIf="aboutData?.instagram_url"
+            [href]="aboutData?.instagram_url"
+            target="_blank"
+            class="social-icon"
+          >
+            <img src="assets/footer/instagram.svg" />
+          </a>
+
+          <a
+            *ngIf="aboutData?.facebook_url"
+            [href]="aboutData?.facebook_url"
+            target="_blank"
+            class="social-icon"
+          >
+            <img src="assets/footer/fb.png" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Footer -->
+
+  <div class="container">
+    <div class="copyright text-center">
+      <div class="footer-menu mb-2">
+        <a
+          href="/kozy-brew-cafe/privacy-policy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Privacy Policy
+        </a>
+        |
+        <a
+          href="/kozy-brew-cafe/terms-and-conditions"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Terms & Conditions
+        </a>
+      </div>
+      <p class="mb-0 footer-copy">
+        © 2026 {{ restaurantName }}, All Rights Reserved.
+
+        <a
+          href="https://waayu.app"
+          target="_blank"
+          class="powered-by text-white"
+        >
+          Powered By Waayu
+          <img
+            src="assets/footer/new_logo.png"
+            class="powered-logo"
+            alt="Waayu Logo"
+          />
+        </a>
+      </p>
+    </div>
+  </div>
+</div>

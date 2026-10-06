@@ -1,0 +1,91 @@
+<div class="menu-premium">
+  <!-- HERO -->
+  <section class="hero-modern">
+
+    <img src="/assets/menu/salad.png" class="hero-img" />
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h5 class="hero-subtitle text-white">Welcome to</h5>
+      <h1 class="hero-title">Swara Healthy Salads And Fruits</h1>
+      <p class="hero-desc">
+        Enjoy an elevated dining experience where exceptional cuisine and
+        elegant ambience create lasting impressions.
+      </p>
+    </div>
+  </section>
+
+  <section class="category-modern py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="category-subtitle"> — Explore Menu — </span>
+
+        <h2 class="category-title">Browse Our Delights</h2>
+
+        <p class="category-desc">Crafted flavors waiting to be discovered</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        @for (cat of categories.slice(0, 3); track cat.id) {
+          <div class="col-lg-4 col-md-6">
+            <div class="premium-card" (click)="openCategory(cat)">
+              <img [src]="cat.image_url || 'assets/home/menu_banner.jpg'" />
+
+              <div class="premium-overlay">
+                <div class="content">
+                  <h3>{{ cat.title }}</h3>
+
+                  <span> Explore Menu → </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+  <!-- MENU -->
+  <section class="menu-gallery-section py-5">
+    <div class="container">
+      <div class="text-center menu-header mb-5">
+        <small class="subtitle text-white">— Our Menu —</small>
+        <h2 class="fw-bold text-white">Explore Our Dishes</h2>
+      </div>
+
+      <div class="menu-grid">
+        @for (item of menuItems; track item.id) {
+          <div class="menu-card">
+            <div class="menu-img">
+              <img [src]="item.image_url" />
+            </div>
+
+            <div class="menu-content">
+              <div class="menu-top">
+                <h3>{{ item.title }}</h3>
+                <span class="price">
+                  ₹{{ item.discounted_price || item.base_price }}
+                </span>
+              </div>
+
+              <p>{{ item.description }}</p>
+
+              <button
+                class="order-btn"
+                (click)="openOrderDialog(item); $event.stopPropagation()"
+              >
+                Order Now →
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <app-order-dialog
+    *ngIf="selectedItem"
+    [item]="selectedItem"
+    (close)="closeOrderDialog()"
+  ></app-order-dialog>
+</div>

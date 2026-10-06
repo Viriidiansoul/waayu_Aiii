@@ -1,0 +1,70 @@
+.footer {
+  background: black;
+}
+.social-icon img {
+  width: 26px;
+  height: 26px;
+}
+
+.powered-logo {
+  height: 100px;
+}
+
+.footer-menu a {
+  color: white;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.footer-menu a:hover {
+  color: #79522f;
+}
+.footer h4 {
+  color: #79522f;
+}
+
+.ff-secondary {
+  font-family: "Pacifico", cursive;
+}
+.powered-by {
+  color: #79522f;
+}
+.opening-hours span:first-child {
+  text-transform: capitalize;
+}
+.custom-order-btn {
+  background-color: #79522f;
+  color: #ffffff;
+  border: none;
+}
+
+.custom-order-btn:hover {
+  background-color: #5e3f24; /* slightly darker for hover */
+  color: #ffffff;
+}
+/* Contact icons color fix */
+.contact-icons a {
+  color: #5e3f24;
+  text-decoration: none;
+}
+
+.contact-icons a i {
+  color: #5e3f24;
+  font-size: 16px;
+}
+
+/* Hover effect (optional premium touch) */
+.contact-icons a:hover i {
+  color: #79522f;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* 🔥 spacing between icons */
+}
+
+.social-icon img {
+  width: 22px;
+  height: 22px;
+}

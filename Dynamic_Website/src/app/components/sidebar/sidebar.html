@@ -1,0 +1,101 @@
+<!-- 🔥 MOBILE TOGGLE BUTTON -->
+<button class="mobile-toggle" (click)="toggleSidebar()">☰</button>
+
+<!-- 🔥 SIDEBAR -->
+<div class="sidebar" [class.open]="isOpen">
+  <!-- TOP SECTION -->
+  <div class="sidebar-top">
+    <!-- LOGO -->
+    <a routerLink="/" class="logo-wrapper" (click)="closeSidebar()">
+      <img [src]="logoUrl" alt="logo" class="sidebar-logo" />
+    </a>
+
+    <!-- NAV LINKS -->
+    <ul class="nav-links">
+      <li
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeSidebar()"
+      >
+        Home
+      </li>
+
+      <li routerLink="/menu" routerLinkActive="active" (click)="closeSidebar()">
+        Menu
+      </li>
+
+      <li
+        routerLink="/about"
+        routerLinkActive="active"
+        (click)="closeSidebar()"
+      >
+        About
+      </li>
+
+      <li
+        routerLink="/gallery"
+        routerLinkActive="active"
+        (click)="closeSidebar()"
+      >
+        Gallery
+      </li>
+
+      <li
+        routerLink="/contact"
+        routerLinkActive="active"
+        (click)="closeSidebar()"
+      >
+        Contact
+      </li>
+    </ul>
+
+    <!-- ORDER BUTTONS -->
+    <div class="order-buttons text-black">
+      <a
+        [href]="appUrl"
+        target="_blank"
+        class="btn primary text-white"
+        (click)="closeSidebar()"
+      >
+        Order On App
+      </a>
+
+      <a
+        [href]="websiteUrl"
+        target="_blank"
+        class="btn secondary text-black"
+        (click)="closeSidebar()"
+      >
+        Order On Website
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="sidebar-footer">
+    <a routerLink="/terms-and-conditions" (click)="closeSidebar()">
+      Terms & Conditions
+    </a>
+
+    <a routerLink="/privacy-policy" (click)="closeSidebar()">
+      Privacy Policy
+    </a>
+
+    <div class="powered">
+      <a href="https://waayu.app" target="_blank">
+        <span>Powered by Waayu</span>
+      </a>
+      <a href="https://waayu.app" target="_blank">
+        <img
+          src="assets/footer/image.png"
+          alt="Waayu Logo"
+          class="waayu-logo"
+        />
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- 🔥 BACKDROP (CLICK OUTSIDE CLOSE) -->
+<div class="backdrop" *ngIf="isOpen" (click)="closeSidebar()"></div>

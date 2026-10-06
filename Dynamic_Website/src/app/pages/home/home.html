@@ -1,0 +1,263 @@
+<section
+  class="hero-section"
+  [ngStyle]="{
+    'background-image': 'url(' + heroBg + ')',
+    'background-size': 'cover',
+    'background-position': 'center',
+  }"
+>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content text-center">
+    <h1 class="hero-title" [class.animate]="animateText" style="color: #fff">
+      {{ banners[currentBannerIndex]?.title }}
+    </h1>
+
+    <p class="hero-description" [class.animate]="animateText">
+      {{ banners[currentBannerIndex]?.short_description }}
+    </p>
+
+    <div class="hero-buttons">
+      <a
+        [href]="appUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn secondary"
+      >
+        Order On App
+      </a>
+
+      <a
+        [href]="websiteUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn secondary"
+      >
+        Order On Website
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-dots">
+    <span
+      *ngFor="let b of banners; let i = index"
+      class="dot"
+      [class.active]="i === currentBannerIndex"
+      (click)="goToSlide(i)"
+    ></span>
+  </div>
+</section>
+
+<section class="home-about py-5" *ngIf="aboutData">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <!-- Left Image -->
+      <div class="col-lg-6">
+        <div class="about-img">
+          <img [src]="aboutData.story_image" alt="About Restaurant" />
+        </div>
+      </div>
+
+      <!-- Right Content -->
+      <div class="col-lg-6">
+        <small class="about-subtitle"> — About Us — </small>
+
+        <h2 class="about-title">
+          {{ aboutData.cooking_title }}
+        </h2>
+
+        <p class="about-desc">
+          {{ aboutData.cooking_description | slice: 0 : 180 }}...
+        </p>
+
+        <!-- <a routerLink="/about" class="about-btn"> Discover More </a> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     FEATURES SECTION
+========================= -->
+<section class="feature-modern-section py-5 bg-black">
+  <div class="container">
+    <!-- HEADER -->
+    <!-- <div class="text-center mb-5">
+      <small class="subtitle">— Our Special Touch —</small>
+      <h2 class="fw-bold">Where Taste Meets Creativity</h2>
+    </div> -->
+
+    <!-- GRID -->
+    <div class="feature-section">
+      <h2 class="about-title">Our Exclusive Items</h2>
+
+      <div class="feature-grid">
+        <div class="feature-item" *ngFor="let item of features">
+          <!-- 🔥 CIRCLE IMAGE -->
+          <div class="feature-img-wrapper">
+            <img
+              [src]="item.image_url || 'assets/home/menu_banner.jpg'"
+              alt="feature"
+            />
+          </div>
+
+          <!-- 🔥 CARD CONTENT -->
+          <div class="feature-card">
+            <h4 class="text-white">{{ item.title }}</h4>
+            <p class="text-white">{{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     GALLERY SECTION 🔥
+========================= -->
+<section class="gallery-section py-5 mt-5">
+  <div class="container text-center">
+    <small class="about-subtitle">— Gallery —</small>
+    <small class="subtitle"></small>
+
+    <h2 class="about-title">A Journey of Taste, Ambience & Indulgence</h2>
+
+    >
+
+    <div class="gallery-slider" *ngIf="!galleryLoading && !galleryError">
+      <div
+        class="gallery-track"
+        [style.transform]="'translateX(' + translateX + 'px)'"
+      >
+        <div
+          class="gallery-item"
+          *ngFor="let item of galleryItems; let i = index"
+          [class.active]="i === centerIndex"
+        >
+          <img [src]="item.image_url || 'assets/default.jpg'" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     MENU SECTION
+========================= -->
+<app-menusection [menuItems]="menuItems" [showButton]="false">
+</app-menusection>
+
+<!-- 
+<section class="download-app-section py-5 position-relative">
+
+  <img src="assets/home/m.png" alt="bg" class="download-app-bg" />
+
+  <div class="container position-relative" style="z-index: 2">
+    <div class="row align-items-center gy-5">
+     
+      <div
+        class="col-12 col-md-10 col-lg-6 mx-auto mx-lg-0 text-center text-lg-start"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+      >
+        <div class="download-app-content">
+          
+          <div
+            class="download-app-label mb-3 justify-content-center justify-content-lg-start"
+          >
+            <span>TASTY MENU</span>
+            <span class="label-line"></span>
+          </div>
+
+          <h2 class="download-app-heading mb-3">
+            Fast & Fresh Food <br />
+            Download App <br />
+            Order Now!
+          </h2>
+
+          
+          <div
+            class="download-app-links mt-4 d-flex flex-wrap justify-content-center justify-content-lg-start gap-3"
+          >
+            <a
+              [href]="appUrl"
+              target="_blank"
+              class="app-link-btn d-flex align-items-center justify-content-center"
+            >
+              <i class="bi bi-phone"></i>
+              <span>APP</span>
+            </a>
+
+            <a
+              [href]="websiteUrl"
+              target="_blank"
+              class="app-link-btn d-flex align-items-center justify-content-center"
+            >
+              <i class="bi bi-globe2"></i>
+              <span>WEBSITE</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      
+      <div
+        class="col-12 col-md-8 col-lg-6 mx-auto text-center"
+        data-aos="fade-left"
+        data-aos-duration="1000"
+      >
+        <div class="download-app-mockup">
+          <img
+            src="assets/home/Mobile Mockup.png"
+            alt="Mobile App"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section class="testimonial-section py-5">
+  <div class="container">
+    <!-- Header -->
+    <div class="text-center mb-5">
+      <span class="about-subtitle">TESTIMONIALS</span>
+      <h2 class="about-title">What Guests Say</h2>
+      <p class="testimonial-sub">Experiences shared by our valued guests</p>
+    </div>
+
+    <!-- Cards -->
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" *ngFor="let item of testimonials">
+        <div class="testimonial-card">
+          <!-- Quote -->
+          <div class="quote-icon">
+            <i class="fa-solid fa-quote-right"></i>
+          </div>
+
+          <!-- Review -->
+          <p class="testimonial-text">"{{ item.description }}"</p>
+
+          <!-- Rating -->
+          <div class="stars mb-3">
+            <i class="fa-solid fa-star" *ngFor="let star of getStars('5')"></i>
+          </div>
+
+          <!-- User -->
+          <div class="user-info">
+            <img
+              [src]="item.image_url || 'assets/home/man.jpg'"
+              class="user-img"
+            />
+
+            <div>
+              <h6>{{ item.name }}</h6>
+              <small>Happy Customer</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

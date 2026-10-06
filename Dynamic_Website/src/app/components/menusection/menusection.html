@@ -1,0 +1,55 @@
+<section class="menu-gallery-section py-5">
+  <div class="container">
+    <!-- HEADER -->
+    <div class="text-center menu-header mb-5">
+      <small class="subtitle">— Our Menu —</small>
+      <h2 class="fw-bold text-white" style="color: #096e36">
+        Explore Our Dishes
+      </h2>
+    </div>
+
+    <!-- GRID -->
+    <div class="menu-grid">
+      @for (item of menuItems; track item.id) {
+        <div class="menu-card">
+          <!-- IMAGE -->
+          <div class="menu-img">
+            <img [src]="item.image_url" [alt]="item.title" />
+          </div>
+
+          <!-- CONTENT -->
+          <div class="menu-content">
+            <div class="menu-top">
+              <h3>{{ item.title }}</h3>
+
+              <span class="price">
+                ₹{{ item.discounted_price || item.base_price }}
+              </span>
+            </div>
+
+            <p>{{ item.description }}</p>
+
+            <button
+              class="order-btn"
+              (click)="openOrderDialog(item); $event.stopPropagation()"
+            >
+              Order Now →
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- BUTTON -->
+    <div class="text-center mt-5" *ngIf="showButton">
+      <button class="view-btn" (click)="openFullMenu()">View Full Menu</button>
+    </div>
+  </div>
+</section>
+
+<!-- DIALOG -->
+<app-order-dialog
+  *ngIf="selectedItem"
+  [item]="selectedItem"
+  (close)="closeOrderDialog()"
+></app-order-dialog>

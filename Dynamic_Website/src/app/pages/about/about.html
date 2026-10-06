@@ -1,0 +1,274 @@
+<div class="menu-banner position-relative">
+  <img src="assets/contact/g.png" />
+
+  <div class="overlay"></div>
+
+  <div class="banner-text text-white">
+    <h1 class="text-white">ABOUT</h1>
+  </div>
+</div>
+
+<section class="cooking-showcase-wrap py-5" *ngIf="aboutData">
+  <div class="container">
+    <div class="cooking-showcase-box">
+      <div class="row align-items-center gy-5">
+        <!-- LEFT IMAGE -->
+        <div class="col-lg-6">
+          <div class="cooking-main-image">
+            <!-- use your story image or create cooking_image field -->
+            <img [src]="aboutData.story_image" alt="Cooking" />
+          </div>
+        </div>
+
+        <!-- RIGHT CONTENT -->
+
+        <div class="col-lg-6">
+          <div class="cooking-content-area">
+            <small class="cook-mini-title"> EXCLUSIVE EXPERIENCE </small>
+
+            <h2 class="cook-main-heading">
+              {{ aboutData.cooking_title }}
+            </h2>
+
+            <p class="cook-description">
+              {{ aboutData.cooking_description }}
+            </p>
+
+            <!-- FEATURE GRID -->
+
+            <div class="row mt-4">
+              <div class="col-6">
+                <div class="cook-feature-item">
+                  <img [src]="aboutData.cooking_feature1_image" />
+
+                  <h6>
+                    {{ aboutData.cooking_feature1_title }}
+                  </h6>
+
+                  <p>
+                    {{ aboutData.cooking_feature1_desc }}
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="cook-feature-item">
+                  <img [src]="aboutData.cooking_feature2_image" />
+
+                  <h6>
+                    {{ aboutData.cooking_feature2_title }}
+                  </h6>
+
+                  <p>
+                    {{ aboutData.cooking_feature2_desc }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story-vision-modern py-5" *ngIf="aboutData">
+  <div class="container">
+    <!-- ===== STORY ===== -->
+    <div class="row align-items-center mb-5 g-4">
+      <!-- IMAGE -->
+      <div class="col-lg-6">
+        <div class="sv-img-box">
+          <img [src]="aboutData.story_image" alt="story" />
+        </div>
+      </div>
+
+      <!-- TEXT -->
+      <div class="col-lg-6">
+        <div class="sv-text">
+          <small class="cook-mini-title">— Our Story —</small>
+          <h2 class="cook-main-heading">Crafted With Passion</h2>
+          <p>
+            {{ aboutData.story_desc }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== VISION ===== -->
+    <div class="row align-items-center g-4 flex-lg-row-reverse">
+      <!-- IMAGE -->
+      <div class="col-lg-6">
+        <div class="sv-img-box">
+          <img [src]="aboutData.vision_image" alt="vision" />
+        </div>
+      </div>
+
+      <!-- TEXT -->
+      <div class="col-lg-6">
+        <div class="sv-text">
+          <small class="cook-mini-title">— Our Vision —</small>
+          <h2 class="cook-main-heading">Creating Memorable Experiences</h2>
+          <p>
+            {{ aboutData.vision_desc }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mission-luxury-section py-5" *ngIf="aboutData">
+  <div class="container">
+    <!-- HEADER -->
+    <div class="text-center mb-5">
+      <small class="cook-mini-title"> — Our Mission — </small>
+
+      <h2 class="cook-main-heading">
+        {{ aboutData.mission_title }}
+      </h2>
+
+      <p class="mission-luxury-desc mx-auto">
+        {{ aboutData.mission_desc }}
+      </p>
+    </div>
+
+    <!-- ZIG-ZAG CARDS -->
+
+    <div class="row g-4">
+      <!-- CARD 1 -->
+      <div class="col-lg-6">
+        <div class="mission-luxury-card card-left">
+          <div class="mission-icon-box">
+            <img [src]="aboutData.mission_feature1_image" />
+          </div>
+
+          <div class="mission-content-box">
+            <h4>
+              {{ aboutData.mission_feature1_title }}
+            </h4>
+
+            <p>
+              {{ aboutData.mission_feature1_desc }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="col-lg-6">
+        <div class="mission-luxury-card card-right">
+          <div class="mission-icon-box">
+            <img [src]="aboutData.mission_feature2_image" />
+          </div>
+
+          <div class="mission-content-box">
+            <h4>
+              {{ aboutData.mission_feature2_title }}
+            </h4>
+
+            <p>
+              {{ aboutData.mission_feature2_desc }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="col-lg-6">
+        <div class="mission-luxury-card card-left">
+          <div class="mission-icon-box">
+            <img [src]="aboutData.mission_feature3_image" />
+          </div>
+
+          <div class="mission-content-box">
+            <h4>
+              {{ aboutData.mission_feature3_title }}
+            </h4>
+
+            <p>
+              {{ aboutData.mission_feature3_desc }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="col-lg-6">
+        <div class="mission-luxury-card card-right">
+          <div class="mission-icon-box">
+            <img [src]="aboutData.mission_feature4_image" />
+          </div>
+
+          <div class="mission-content-box">
+            <h4>
+              {{ aboutData.mission_feature4_title }}
+            </h4>
+
+            <p>
+              {{ aboutData.mission_feature4_desc }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     LOCATION SECTION
+========================= -->
+<section class="location-section py-5" *ngIf="aboutData">
+  <div class="container">
+    <!-- TITLE -->
+    <div class="text-center mb-5">
+      <p class="section-title">LOCATION AND ADDRESS</p>
+    </div>
+
+    <div class="row align-items-center g-4">
+      <!-- LEFT: MAP -->
+      <div class="col-lg-6">
+        <div class="map-box position-relative">
+          <!-- ✅ FIXED (use safeMapUrl) -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.5550753068146!2d72.9615778!3d19.1709435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b9c535a5030d%3A0x8160785fd15c5fab!2sSwara%20Healthy%20Salads%20And%20Fruits!5e0!3m2!1sen!2sin!4v1780039343434!5m2!1sen!2sin"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- RIGHT: DETAILS -->
+      <div class="col-lg-6 text-white">
+        <!-- CITY -->
+        <h2 class="text-black fw-bold">
+          {{ aboutData.city }}
+        </h2>
+
+        <!-- ADDRESS (clean) -->
+        <p class="mb-2">
+          {{ aboutData.address }}
+        </p>
+
+        <!-- PHONE -->
+        <p class="mb-3"><strong>Contact Us:</strong> {{ phoneNumber }}</p>
+
+        <!-- DIRECTIONS -->
+        <a
+          href="https://maps.app.goo.gl/i1TDs5rzAi2q6raVA"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="me-3"
+          class="direction-link d-inline-flex align-items-center gap-2"
+        >
+          <span class="arrow">←</span>
+          GET DIRECTIONS
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

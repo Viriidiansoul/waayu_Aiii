@@ -1,0 +1,126 @@
+<nav
+  class="navbar navbar-expand-lg py-0 premium-navbar"
+  [class.scrolled]="isScrolled"
+>
+  <div class="container-fluid px-4 nav-inner">
+    <!-- LEFT MENU (DESKTOP) -->
+    <ul class="navbar-nav nav-links d-none d-lg-flex">
+      <li class="nav-item">
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="nav-link"
+        >
+          Home
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a routerLink="/menu" routerLinkActive="active" class="nav-link">
+          Menu
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a routerLink="/about" routerLinkActive="active" class="nav-link">
+          About
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a routerLink="/gallery" routerLinkActive="active" class="nav-link">
+          Gallery
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a routerLink="/contact" routerLinkActive="active" class="nav-link">
+          Contact
+        </a>
+      </li>
+    </ul>
+
+    <!-- LOGO -->
+    <a
+      routerLink="/"
+      class="navbar-brand nav-logo-center"
+      (click)="closeMobileMenu()"
+    >
+      <img [src]="logoUrl" class="nav-logo" />
+    </a>
+
+    <!-- RIGHT BUTTONS (DESKTOP) -->
+    <div class="nav-order-btns d-none d-lg-flex">
+      <a [href]="appUrl" target="_blank" class="nav-order-btn primary-btn"
+        >Order On App</a
+      >
+      <a [href]="websiteUrl" target="_blank" class="nav-order-btn secondary-btn"
+        >Order On Website</a
+      >
+    </div>
+
+    <!-- MOBILE TOGGLER -->
+    <button
+      class="navbar-toggler custom-toggler d-lg-none"
+      type="button"
+      (click)="toggleMobileMenu()"
+      [class.open]="isMobileMenuOpen"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu d-lg-none" [class.show]="isMobileMenuOpen">
+    <ul class="mobile-links">
+      <li>
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="closeMobileMenu()"
+          >Home</a
+        >
+      </li>
+
+      <li>
+        <a
+          routerLink="/menu"
+          routerLinkActive="active"
+          (click)="closeMobileMenu()"
+          >Menu</a
+        >
+      </li>
+
+      <li>
+        <a
+          routerLink="/about"
+          routerLinkActive="active"
+          (click)="closeMobileMenu()"
+          >About</a
+        >
+      </li>
+
+      <li>
+        <a
+          routerLink="/gallery"
+          routerLinkActive="active"
+          (click)="closeMobileMenu()"
+          >Gallery</a
+        >
+      </li>
+
+      <li>
+        <a
+          routerLink="/contact"
+          routerLinkActive="active"
+          (click)="closeMobileMenu()"
+          >Contact</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>

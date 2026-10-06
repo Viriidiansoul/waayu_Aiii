@@ -1,0 +1,192 @@
+/* Backdrop */
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  animation: fadeIn 0.25s ease;
+}
+
+/* Box */
+.dialog-box {
+  width: 95%;
+  max-width: 380px;
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  animation: zoomIn 0.25s ease;
+}
+
+.dialog-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #79522f;
+  border: none;
+  color: #fff; /* full white */
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  z-index: 10; /* 👈 IMPORTANT */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-close:hover {
+  background: #79522f;
+  color: #fff;
+}
+
+.dialog-image {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+}
+
+.dialog-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.dialog-image {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+}
+
+.dialog-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Content */
+.dialog-content {
+  padding: 16px;
+}
+
+/* Header */
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dialog-header h3 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Badge */
+.badge {
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.badge.veg {
+  background: #22c55e;
+}
+.badge.egg {
+  background: #f59e0b;
+}
+.badge.nonveg {
+  background: #ef4444;
+}
+
+/* Desc */
+.desc {
+  font-size: 13px;
+  color: #aaa;
+  margin: 8px 0;
+}
+
+/* Price */
+.price-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.old {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.current {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ef4444;
+}
+
+/* Buttons */
+.dialog-actions {
+  display: flex;
+  gap: 10px;
+  padding: 16px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* App Button */
+.btn.app {
+  background: #79522f;
+  color: #fff;
+}
+
+.btn.app:hover {
+  transform: translateY(-2px);
+}
+
+/* Web Button */
+.btn.web {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.btn.web:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Animations */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

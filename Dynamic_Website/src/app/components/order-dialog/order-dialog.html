@@ -1,0 +1,67 @@
+<div class="dialog-backdrop" (click)="onBackdropClick()">
+  <div class="dialog-box" (click)="$event.stopPropagation()">
+    <!-- Close -->
+    <button class="dialog-close" (click)="onBackdropClick()">
+      <i class="bi bi-x-lg"></i>
+    </button>
+
+    @if (item) {
+      <!-- Image -->
+      @if (item.image_url) {
+        <div class="dialog-image">
+          <img [src]="item.image_url" [alt]="item.title" />
+        </div>
+      }
+
+      <!-- Content -->
+      <div class="dialog-content">
+        <!-- Header -->
+        <div class="dialog-header">
+          <h3>{{ item.title }}</h3>
+
+          <!-- @if (item.is_veg) {
+            <span class="badge veg">Veg</span>
+          } @else if (item.is_egg) {
+            <span class="badge egg">Egg</span>
+          } @else {} -->
+        </div>
+
+        <!-- Description -->
+        @if (item.description) {
+          <p class="desc">{{ item.description }}</p>
+        }
+
+        <!-- ✅ Price (ONLY for menu items) -->
+        @if (item.isCategory !== true) {
+          <div class="price-row">
+            @if (
+              item.base_price &&
+              item.discounted_price &&
+              +item.base_price > +item.discounted_price
+            ) {
+              <span class="old">₹{{ item.base_price }}</span>
+            }
+
+            <span class="current">
+              ₹{{ item.discounted_price || item.base_price || 0 }}
+            </span>
+          </div>
+        }
+
+        <!-- ✅ Optional message for category -->
+        @if (item.isCategory) {}
+      </div>
+
+      <!-- Buttons -->
+      <div class="dialog-actions">
+        <button class="btn app" (click)="orderOnApp()">
+          <i class="bi bi-phone"></i> App
+        </button>
+
+        <button class="btn web" (click)="orderOnWebsite()">
+          <i class="bi bi-globe2"></i> Website
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,253 @@
+<!-- =========================
+     BANNER
+========================= -->
+<div class="menu-banner">
+  <img src="assets/contact/t.jpeg" />
+  <div class="overlay"></div>
+
+  <div class="banner-text">
+    <h1 class="text-black">CONTACT</h1>
+  </div>
+</div>
+
+<section class="contact-luxury-section py-5">
+  <div class="container">
+    <div class="row gy-5">
+      <div class="col-lg-5">
+        <div class="contact-info-panel">
+          <h2 class="contact-main-heading">Contact Information</h2>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">
+              <i class="fa fa-envelope"></i>
+            </div>
+
+            <div>
+              <h6>Email</h6>
+
+              <p>
+                {{ restaurantData?.email }}
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">
+              <i class="fa fa-phone"></i>
+            </div>
+
+            <div>
+              <h6>Phone</h6>
+
+              <p>+91 {{ restaurantData?.phone }}</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">
+              <i class="fa fa-map-marker-alt"></i>
+            </div>
+
+            <div>
+              <h6>Address</h6>
+
+              <p>
+                {{ restaurantData?.address }}
+              </p>
+            </div>
+          </div>
+
+          <div class="support-box">
+            <h5>Restaurant Support</h5>
+
+            <p>
+              Our team is available to assist you with reservations, queries and
+              orders.
+            </p>
+
+            <strong> Available Daily </strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="contact-form-panel">
+          <h2 class="contact-main-heading">Send Us A Message</h2>
+          <form (ngSubmit)="submitForm(contactForm)" #contactForm="ngForm">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  class="lux-input"
+                  name="name"
+                  [(ngModel)]="form.name"
+                  #name="ngModel"
+                  placeholder="Full Name"
+                  required
+                />
+
+                <small class="text-danger" *ngIf="submitted && !validName()">
+                  Name is required
+                </small>
+              </div>
+
+              <div class="col-md-6">
+                <input
+                  type="email"
+                  class="lux-input"
+                  name="email"
+                  [(ngModel)]="form.email"
+                  #email="ngModel"
+                  placeholder="Email Address"
+                  required
+                />
+
+                <small class="text-danger" *ngIf="submitted && !validEmail()">
+                  Enter a valid email address
+                </small>
+              </div>
+
+              <div class="col-md-6">
+                <input
+                  type="tel"
+                  class="lux-input"
+                  name="phone"
+                  [(ngModel)]="form.phone"
+                  #phone="ngModel"
+                  placeholder="Phone Number"
+                  maxlength="10"
+                  required
+                />
+
+                <small class="text-danger" *ngIf="submitted && !validPhone()">
+                  Enter a valid 10 digit phone number
+                </small>
+              </div>
+
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  class="lux-input"
+                  name="subject"
+                  [(ngModel)]="form.subject"
+                  #subject="ngModel"
+                  placeholder="Subject"
+                  required
+                />
+
+                <small class="text-danger" *ngIf="submitted && !validSubject()">
+                  Subject is required
+                </small>
+              </div>
+
+              <div class="col-12">
+                <textarea
+                  rows="5"
+                  class="lux-input"
+                  name="message"
+                  [(ngModel)]="form.message"
+                  #message="ngModel"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+
+                <small class="text-danger" *ngIf="submitted && !validMessage()">
+                  Enter minimum 10 characters message
+                </small>
+              </div>
+
+              <div class="col-12">
+                <button class="lux-contact-btn" [disabled]="loading">
+                  {{ loading ? "Sending..." : "Send Message" }}
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     VISIT
+========================= -->
+<!-- <section class="visit-modern py-5">
+  <div class="container text-center">
+    <h2 class="main-title">Visit Our Restaurant</h2>
+    <div class="row g-4 mt-4 align-items-stretch">
+      <div class="col-md-4">
+        <div class="visit-card">
+          <div class="icon"><i class="bi bi-telephone"></i></div>
+          <h6>Call Us</h6>
+          <p>{{ restaurantData.phone }}</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="visit-card">
+          <div class="icon"><i class="bi bi-envelope"></i></div>
+          <h6>Email</h6>
+          <p>{{ restaurantData.email }}</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="visit-card">
+          <div class="icon"><i class="bi bi-geo-alt"></i></div>
+          <h6>Location</h6>
+          <p>
+            {{ restaurantData.address }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- =========================
+     OPENING HOURS
+========================= -->
+<section class="hours-luxury-section py-5">
+  <div class="container">
+    <!-- HEADER -->
+
+    <div class="text-center mb-5">
+      <small class="hours-tag"> — Timings — </small>
+
+      <h2 class="hours-heading">We're Open Every Day</h2>
+
+      <p class="hours-subtext">We serve happiness daily</p>
+    </div>
+
+    <!-- HOURS CARD -->
+
+    <div class="hours-lux-card">
+      <div
+        *ngFor="let h of openingHours"
+        class="hours-lux-row"
+        [class.active-day]="isToday(h.day)"
+      >
+        <!-- DAY -->
+
+        <div class="lux-day">
+          {{ h.day | titlecase }}
+        </div>
+
+        <!-- LINE -->
+
+        <div class="lux-line"></div>
+
+        <!-- TIME -->
+
+        <div class="lux-time">
+          <span *ngIf="h.isOpen">
+            {{ h.morningOpen }} - {{ h.morningClose }}
+          </span>
+
+          <span *ngIf="!h.isOpen"> Closed </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
