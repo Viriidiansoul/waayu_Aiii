@@ -50,10 +50,6 @@ export class Gallery implements OnInit {
     return this.restaurantData?.restaurant_name || 'Our Gallery';
   }
 
-  ngOnInit(): void {
-    this.loadGallery();
-  }
-
   loadGallery(): void {
     this.isLoading = true;
     this.error = false;
