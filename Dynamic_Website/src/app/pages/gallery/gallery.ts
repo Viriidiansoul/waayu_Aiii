@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ApiService, GalleryItem } from '../../service/api';
+import { ApiService, GalleryItem, RestaurantAbout } from '../../service/api';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -19,7 +19,36 @@ export class Gallery implements OnInit {
   // 🔥 center index
   centerIndex: number = 0;
 
+  /** Restaurant data for dynamic name */
+  restaurantData: RestaurantAbout | null = null;
+
   constructor(private api: ApiService) {}
+
+  ngOnInit(): void {
+    this.loadGallery();
+    this.loadRestaurantInfo();
+  }
+
+  /** Load restaurant info for dynamic name */
+  loadRestaurantInfo(): void {
+    const cached = this.api.getCachedAbout();
+    if (cached) {
+      this.restaurantData = cached;
+    }
+    this.api.getRestaurantAbout().subscribe({
+      next: (res) => {
+        this.restaurantData = res;
+      },
+      error: (err) => {
+        console.error('Gallery Restaurant Info Error:', err);
+      },
+    });
+  }
+
+  /** Dynamic restaurant name */
+  get restaurantName(): string {
+    return this.restaurantData?.restaurant_name || 'Our Gallery';
+  }
 
   ngOnInit(): void {
     this.loadGallery();

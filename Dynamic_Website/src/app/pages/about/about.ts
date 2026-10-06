@@ -62,6 +62,11 @@ export class About implements OnInit {
     return this.aboutData?.phone ? `+91 ${this.aboutData.phone}` : '';
   }
 
+  /** Map link for directions button */
+  get mapLink(): string {
+    return this.aboutData?.map_url || '';
+  }
+
   /** Handle broken images by setting a fallback */
   onImageError(event: Event): void {
     const img = event.target as HTMLImageElement;

@@ -1,5 +1,5 @@
 <div class="menu-banner position-relative">
-  <img src="assets/contact/g.png" />
+  <img src="assets/contact/g.png" (error)="onImageError($event)" />
 
   <div class="overlay"></div>
 
@@ -89,7 +89,11 @@
       <!-- IMAGE -->
       <div class="col-lg-6">
         <div class="sv-img-box">
-          <img [src]="aboutData.story_image" alt="story" />
+          <img
+            [src]="aboutData.story_image"
+            alt="story"
+            (error)="onImageError($event)"
+          />
         </div>
       </div>
 
@@ -110,7 +114,11 @@
       <!-- IMAGE -->
       <div class="col-lg-6">
         <div class="sv-img-box">
-          <img [src]="aboutData.vision_image" alt="vision" />
+          <img
+            [src]="aboutData.vision_image"
+            alt="vision"
+            (error)="onImageError($event)"
+          />
         </div>
       </div>
 
@@ -150,7 +158,10 @@
       <div class="col-lg-6">
         <div class="mission-luxury-card card-left">
           <div class="mission-icon-box">
-            <img [src]="aboutData.mission_feature1_image" />
+            <img
+              [src]="aboutData.mission_feature1_image"
+              (error)="onImageError($event)"
+            />
           </div>
 
           <div class="mission-content-box">
@@ -169,7 +180,10 @@
       <div class="col-lg-6">
         <div class="mission-luxury-card card-right">
           <div class="mission-icon-box">
-            <img [src]="aboutData.mission_feature2_image" />
+            <img
+              [src]="aboutData.mission_feature2_image"
+              (error)="onImageError($event)"
+            />
           </div>
 
           <div class="mission-content-box">
@@ -188,7 +202,10 @@
       <div class="col-lg-6">
         <div class="mission-luxury-card card-left">
           <div class="mission-icon-box">
-            <img [src]="aboutData.mission_feature3_image" />
+            <img
+              [src]="aboutData.mission_feature3_image"
+              (error)="onImageError($event)"
+            />
           </div>
 
           <div class="mission-content-box">
@@ -207,7 +224,10 @@
       <div class="col-lg-6">
         <div class="mission-luxury-card card-right">
           <div class="mission-icon-box">
-            <img [src]="aboutData.mission_feature4_image" />
+            <img
+              [src]="aboutData.mission_feature4_image"
+              (error)="onImageError($event)"
+            />
           </div>
 
           <div class="mission-content-box">
@@ -239,9 +259,10 @@
       <!-- LEFT: MAP -->
       <div class="col-lg-6">
         <div class="map-box position-relative">
-          <!-- ✅ FIXED (use safeMapUrl) -->
+          <!-- ✅ Use dynamic safeMapUrl from API -->
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.5550753068146!2d72.9615778!3d19.1709435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b9c535a5030d%3A0x8160785fd15c5fab!2sSwara%20Healthy%20Salads%20And%20Fruits!5e0!3m2!1sen!2sin!4v1780039343434!5m2!1sen!2sin"
+            *ngIf="safeMapUrl; else staticMap"
+            [src]="safeMapUrl"
             width="100%"
             height="350"
             style="border: 0"
@@ -249,6 +270,17 @@
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
+          <ng-template #staticMap>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.5550753068146!2d72.9615778!3d19.1709435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b9c535a5030d%3A0x8160785fd15c5fab!2sSwara%20Healthy%20Salads%20And%20Fruits!5e0!3m2!1sen!2sin!4v1780039343434!5m2!1sen!2sin"
+              width="100%"
+              height="350"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </ng-template>
         </div>
       </div>
 
@@ -269,15 +301,26 @@
 
         <!-- DIRECTIONS -->
         <a
-          href="https://maps.app.goo.gl/i1TDs5rzAi2q6raVA"
+          *ngIf="mapLink; else defaultDirections"
+          [href]="mapLink"
           target="_blank"
           rel="noopener noreferrer"
-          class="me-3"
           class="direction-link d-inline-flex align-items-center gap-2"
         >
           <span class="arrow">←</span>
           GET DIRECTIONS
         </a>
+        <ng-template #defaultDirections>
+          <a
+            href="https://maps.app.goo.gl/i1TDs5rzAi2q6raVA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="direction-link d-inline-flex align-items-center gap-2"
+          >
+            <span class="arrow">←</span>
+            GET DIRECTIONS
+          </a>
+        </ng-template>
       </div>
     </div>
   </div>

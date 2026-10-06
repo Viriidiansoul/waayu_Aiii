@@ -147,6 +147,11 @@ export class Menu implements OnInit, AfterViewInit {
     if (url) window.open(url, '_blank');
   }
 
+  /** Dynamic restaurant name from API */
+  get restaurantName(): string {
+    return this.restaurantData?.restaurant_name || 'Our Restaurant';
+  }
+
   /** Handle broken images by setting a fallback */
   onImageError(event: Event): void {
     const img = event.target as HTMLImageElement;

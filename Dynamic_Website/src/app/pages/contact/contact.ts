@@ -160,4 +160,12 @@ export class Contact implements OnInit {
 
     formRef.resetForm();
   }
+
+  /** Handle broken images by setting a fallback */
+  onImageError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    if (img) {
+      img.src = 'assets/home/menu_banner.jpg';
+    }
+  }
 }
