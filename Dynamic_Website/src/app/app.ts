@@ -3,13 +3,11 @@ import { isPlatformBrowser } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from './components/navbar/navbar';
-import { Footer } from './components/footer/footer';
 import { ApiService } from './service/api';
-import { Sidebar } from './components/sidebar/sidebar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, Footer, Sidebar],
+  imports: [RouterOutlet, Navbar],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

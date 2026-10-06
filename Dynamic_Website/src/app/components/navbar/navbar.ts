@@ -8,6 +8,7 @@ import {
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ApiService, RestaurantAbout } from '../../service/api';
+import { APP_URL, WEBSITE_URL, DEFAULT_IMAGES } from '../../constants';
 
 @Component({
   selector: 'app-navbar',
@@ -19,9 +20,9 @@ import { ApiService, RestaurantAbout } from '../../service/api';
 export class Navbar implements OnInit {
   isScrolled = false;
   isMobileMenuOpen = false;
-  logoUrl: string = 'assets/home/family_kitchen_logo.png';
-  appUrl: string = '#';
-  websiteUrl: string = '#';
+  logoUrl: string = DEFAULT_IMAGES.logo;
+  appUrl: string = APP_URL;
+  websiteUrl: string = WEBSITE_URL;
 
   constructor(
     private apiService: ApiService,

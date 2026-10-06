@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, tap } from 'rxjs';
 
+import { API_BASE_URL, RESTAURANT_ID } from '../constants';
+
 export interface MenuItem {
   id: number;
   restaurant_id: number;
@@ -246,13 +248,8 @@ export interface DialogData {
   providedIn: 'root',
 })
 export class ApiService {
-  private baseUrl = 'https://webapi.waayu.app/api/v1';
-  // private restId = 5865; //family kitchen
-
-  // private restId = 6171;
-  // private restId = 6674; //bhua cha dhakka
-  // private restId = 6678; //tealogy
-  private restId = 6681; //swara
+  private baseUrl = API_BASE_URL;
+  private restId = RESTAURANT_ID;
 
   constructor(private http: HttpClient) {}
 
