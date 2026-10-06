@@ -10,10 +10,11 @@ export const RESTAURANT_ID = 6681;
 export const API_BASE_URL = 'https://webapi.waayu.app/api/v1';
 
 /** Restaurant website URL (Order On Website button) */
-export const WEBSITE_URL = 'https://waayu-aiii.vercel.app';
+export const WEBSITE_URL = 'https://waayu.app/webstore/?r=swn2d3/';
 
-/** Restaurant webstore/app URL (Order On App button) */
-export const APP_URL = 'https://waayu.app/webstore/?r=swn2d3/';
+/** Restaurant app URL (Order On App button) - Google Play Store */
+export const APP_URL =
+  'https://play.google.com/store/apps/details?id=com.customer.hungrez&hl=en_IN';
 
 /** Default fallback images */
 export const DEFAULT_IMAGES = {

@@ -1,8 +1,8 @@
 # UI Bug Fixes Summary
 
 ## URLs Configured
-- **Home Page (Website URL):** `https://waayu-aiii.vercel.app`
-- **Webstore (App URL):** `https://waayu.app/webstore/?r=swn2d3/`
+- **Order On App (Google Play Store):** `https://play.google.com/store/apps/details?id=com.customer.hungrez&hl=en_IN`
+- **Order On Website (Webstore):** `https://waayu.app/webstore/?r=swn2d3/`
 
 ## Files Created
 1. **`src/app/constants.ts`** - Centralized configuration constants
